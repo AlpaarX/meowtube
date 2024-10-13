@@ -1,14 +1,11 @@
 const meowTubeUrl = "https://alpaarx.github.io/MeowTube-view/";
 
+// Handle navigation
 function handleNavigation() {
-    console.log("Location changed to: " + location.href);
     if (location.href === "https://www.youtube.com/") {
         location.replace(meowTubeUrl);
     }
 }
-
-// Call the function on initial load
-handleNavigation();
 
 //  Select logo element and replace it
 function replace(from, to) {
@@ -29,6 +26,7 @@ function createLink() {
     return link;
 }
 
+// Check if element is loaded
 const isElementLoaded = async (selector) => {
     while (document.querySelector(selector) === null) {
         await new Promise((resolve) => requestAnimationFrame(resolve));
@@ -36,6 +34,10 @@ const isElementLoaded = async (selector) => {
     return document.querySelector(selector);
 };
 
+// Call the function on initial load
+handleNavigation();
+
+// Check if element logo is loaded
 isElementLoaded("ytd-topbar-logo-renderer#logo").then((selector) => {
     replace(
         document.querySelector("ytd-topbar-logo-renderer#logo"),
