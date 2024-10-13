@@ -1,7 +1,9 @@
+const meowTubeUrl = "https://alpaarx.github.io/MeowTube-view/";
+
 function handleNavigation() {
     console.log("Location changed to: " + location.href);
     if (location.href === "https://www.youtube.com/") {
-        location.replace("https://alpaarx.github.io/MyTube-view/");
+        location.replace(meowTubeUrl);
     }
 }
 
@@ -17,7 +19,7 @@ function replace(from, to) {
 // Create my logo element
 function createLink() {
     const link = document.createElement("a");
-    link.setAttribute("href", "https://alpaarx.github.io/MyTube-view/");
+    link.setAttribute("href", meowTubeUrl);
 
     const img = document.createElement("img");
     img.src = chrome.runtime.getURL("images/kitty-logo.png");
